@@ -1,4 +1,4 @@
-'use client'
+
 import AppBanner from "@/components/AppBanner";
 import UspInfo from "@/components/UspInfo";
 import styles, { layout } from "@/app/style";

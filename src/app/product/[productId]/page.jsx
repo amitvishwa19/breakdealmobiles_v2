@@ -36,13 +36,9 @@ export default async function page({ params }) {
                 <span className='text-2xl font-bold '>{product?.title}</span>
                 <span className='text-xl font-bold text-slate-600 '>{product?.priceRange}</span>
 
-                <div className='flex gap-4 items-center mt-4'>
-                    <span className='font-bold'>Variant: </span>
 
-                    <VariantSelector />
-                </div>
 
-                <div className='flex gap-4 items-center mt-4'>
+                <div className='flex gap-4 items-center mt-20'>
                     <span className='font-bold'>Colors: </span>
 
                     <ColorPallete lcolors={colors.items} />
