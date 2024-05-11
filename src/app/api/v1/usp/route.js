@@ -7,13 +7,13 @@ export async function GET(request) {
 
         //const res = await contentfulClient.getEntries({ 'content_type': 'address' })
         //const address = res.items
-        console.log('products api')
-
-        const res = await contentfulClient.getEntries({ 'content_type': 'products' })
-        const products = res.items
 
 
-        return NextResponse.json({ message: "success", data: products })
+        const res = await contentfulClient.getEntries({ 'content_type': 'uspinfo' })
+        const uspinfo = res.items
+
+
+        return NextResponse.json({ message: "success", data: uspinfo })
 
     } catch (error) {
         return NextResponse.json({ error: error.message }, { status: 500 })

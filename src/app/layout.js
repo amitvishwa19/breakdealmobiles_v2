@@ -17,11 +17,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning={true}>
 
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen overflow-hidden">
           <div>
             <Navbar />
           </div>
-          <div className="flex-1 bg-red-200">
+          <div className="flex-1 ">
             {children}
           </div>
           <div>
