@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Autoplay from "embla-carousel-autoplay"
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -12,8 +12,23 @@ import {
 import styles, { layout } from "@/app/style";
 import Link from "next/link";
 import GetStarted from "./GetStarted";
+import axios from 'axios'
 
-export default function AppBanner({ products }) {
+export default function AppBanner() {
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        product_res()
+    }, [])
+
+
+
+    const product_res = async () => {
+        await axios.get('/api/v1/product')
+            .then((res) => {
+                setProducts(res?.data?.data)
+            })
+    }
 
     const plugin = useRef(
         Autoplay({ delay: 2000, stopOnInteraction: true })
