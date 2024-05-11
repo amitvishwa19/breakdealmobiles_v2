@@ -23,9 +23,14 @@ export default function Address() {
 
 
     return (
-        <div>
+        <div className='w-60'>
+
             <h1 className='font-bold text-xl mb-2'>{address?.title}</h1>
-            <div className='text-sm'>{address?.address}</div>
+            <div className='text-sm'>{address?.add1}</div>
+            <div className='text-sm'>{address?.add2}</div>
+            <div className='text-sm'>{address?.add3}</div>
+            <div className='text-sm'>{address?.city}, {address?.state}, {address?.pin}</div>
+
             <div className='text-sm'>{address.email}</div>
             <div className='text-sm'>{address.mobile}</div>
         </div>

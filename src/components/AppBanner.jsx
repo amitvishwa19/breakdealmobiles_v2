@@ -31,7 +31,7 @@ export default function AppBanner() {
     }
 
     const plugin = useRef(
-        Autoplay({ delay: 2000, stopOnInteraction: true })
+        Autoplay({ delay: 2000, stopOnInteraction: false })
     )
 
 
@@ -44,6 +44,7 @@ export default function AppBanner() {
             onMouseLeave={plugin.current.reset}
 
         >
+            <CarouselPrevious className='z-20' />
             <CarouselContent className=''>
                 {
                     products?.map((product, index) => {
@@ -104,7 +105,7 @@ export default function AppBanner() {
                 }
 
             </CarouselContent >
-            <CarouselPrevious />
+
             <CarouselNext />
         </Carousel >
     )
