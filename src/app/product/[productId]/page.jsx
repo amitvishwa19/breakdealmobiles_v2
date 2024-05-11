@@ -6,7 +6,6 @@ import VariantSelector from '@/components/VariantSelector'
 import { Button } from '@/components/ui/button'
 // import { contentfulClient } from '@/utils/contentfull'
 import axios from 'axios'
-import { redirect } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 // export async function fetchProductData() {
@@ -17,7 +16,7 @@ import React, { useEffect, useState } from 'react'
 
 
 
-export default function page({ params }) {
+export default function ProductIdPage({ params }) {
     const { productId } = params
     //const data = await fetchProductData()
     const [avaliableStorage, setAvaliableStorage] = useState([])
