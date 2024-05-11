@@ -35,16 +35,16 @@ export const Navbar = () => {
           <Link href={'/'}><img src={logo_dark.src} alt="breakdealmobiles" className="w-[220px] h-[25px]" /></Link>
 
           <ul className="list-none sm:flex hidden justify-end items-center flex-1">
-            <li className={`font-poppins  cursor-pointer text-[16px] mr-10 ${path === '/' ? "text-slate-800 bg-gray-100 p-2 rounded-xl font-bold" : "text-dimWhite"} `} >
+            <li className={`font-poppins  cursor-pointer text-[16px] mr-10 ${path === '/' ? "text-slate-800 bg-gray-100 p-2 rounded-xl font-bold" : "text-gray-100"} `} >
               <Link href='/' onClick={() => { }}>Home</Link>
             </li>
-            <li className={`font-poppins  cursor-pointer text-[16px] mr-10 ${path === '/product' ? "text-slate-800 bg-gray-100 p-2 rounded-xl font-bold" : "text-dimWhite"} `} >
+            <li className={`font-poppins  cursor-pointer text-[16px] mr-10 ${path === '/product' ? "text-slate-800 bg-gray-100 p-2 rounded-xl font-bold" : "text-gray-100"} `} >
               <Link href='/product' onClick={() => { }}>Product</Link>
             </li>
-            <li className={`font-poppins  cursor-pointer text-[16px] mr-10 ${path === '/about' ? "text-slate-800 bg-gray-100 p-2 rounded-xl font-bold" : "text-dimWhite"} `} >
+            <li className={`font-poppins  cursor-pointer text-[16px] mr-10 ${path === '/about' ? "text-slate-800 bg-gray-100 p-2 rounded-xl font-bold" : "text-gray-100"} `} >
               <Link href='/about' onClick={() => { }}>About</Link>
             </li>
-            <li className={`font-poppins  cursor-pointer text-[16px] mr-10 ${path === '/contact' ? "text-slate-800 bg-gray-100 p-2 rounded-xl font-bold" : "text-dimWhite"} `} >
+            <li className={`font-poppins  cursor-pointer text-[16px] mr-10 ${path === '/contact' ? "text-slate-800 bg-gray-100 p-2 rounded-xl font-bold" : "text-gray-100"} `} >
               <Link href='/contact' onClick={() => { }}>Contact</Link>
             </li>
           </ul>

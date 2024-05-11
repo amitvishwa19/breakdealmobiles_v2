@@ -1,21 +1,27 @@
-// import { contentfulClient } from "@/utils/contentfull";
+'use client'
+import axios from "axios";
 import Image from "next/image";
-
-
-
-// export async function fetchProductData() {
-//   const res = await contentfulClient.getEntries({ 'content_type': 'products' })
-//   return res.items
-// }
-
-// export async function fetchOffers() {
-//   const res = await contentfulClient.getEntries({ 'content_type': 'offerModal' })
-//   return res.items
-// }
+import { useEffect, useState } from "react";
 
 
 
 export default function Home() {
+  const [products, setProducts] = useState([])
+
+
+
+  useEffect(() => {
+    product_res()
+
+  }, [])
+
+  const product_res = async () => {
+    await axios('/api/v1/product')
+      .then((res) => {
+        setProducts(res?.data?.data)
+      })
+  }
+
   return (
     <main className='bg-red-400'>
 
