@@ -23,7 +23,7 @@ export default function AllProducts() {
     const fetchProducts = async () => {
         await axios.get('/api/v1/product')
             .then((res) => {
-                console.log(res)
+                //console.log(res)
                 setProducts(res.data.data)
             })
     }

@@ -12,6 +12,7 @@ import Testimonials from "@/components/Testimonials";
 import Clients from "@/components/Clients";
 import CTA from "@/components/CTA";
 import AllProducts from "@/components/AllProducts";
+import OfferModal from "@/components/OfferModal";
 
 
 export default function Home() {
@@ -33,6 +34,9 @@ export default function Home() {
 
   return (
     <div className=''>
+
+      <OfferModal />
+
       <AppBanner products={products} />
 
       <div className="mt-10 mb-20">

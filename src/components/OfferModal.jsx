@@ -12,8 +12,10 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import axios from 'axios'
 
-export default function OfferModal({ offer }) {
+export default function OfferModal() {
+    const [offer, setOffer] = useState({})
     const [loading, setLoading] = useState(true)
     const [open, setOpen] = useState(true)
     const openref = useRef(null)
@@ -22,12 +24,20 @@ export default function OfferModal({ offer }) {
     const info = offer?.info
     const image = offer?.image?.fields?.file?.url
 
-    console.log(image)
+
 
     useEffect(() => {
-        console.log('load modal')
+        getOffer()
         setLoading(false)
     }, [])
+
+    const getOffer = async () => {
+        await axios.get('/api/v1/offer')
+            .then((res) => {
+                //console.log(res?.data?.data[0].fields)
+                setOffer(res?.data?.data[0]?.fields)
+            })
+    }
 
 
     if (loading) {

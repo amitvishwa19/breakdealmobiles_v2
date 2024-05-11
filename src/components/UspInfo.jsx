@@ -15,7 +15,6 @@ export default function UspInfo() {
     const getUsp = async () => {
         await axios.get('/api/v1/usp')
             .then((res) => {
-                console.log(res)
                 setUsp(res.data.data)
             })
     }
