@@ -7,7 +7,7 @@ export async function GET(request) {
 
         //const res = await contentfulClient.getEntries({ 'content_type': 'address' })
         //const address = res.items
-        console.log('products api')
+        // console.log('products api')
 
         const res = await contentfulClient.getEntries({ 'content_type': 'products' })
         const products = res.items

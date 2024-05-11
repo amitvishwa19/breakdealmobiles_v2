@@ -1,29 +1,64 @@
 'use client'
 import { Check } from 'lucide-react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Button } from './ui/button'
 
 
-export default function StorageSelector({ storage }) {
+export default function StorageSelector({ storage, data, subvariant, avaliableStorage, setAvaliableStorage }) {
     const [selectedStorage, setSelectedStorage] = useState('')
-    return (
-        // <div className={`p-6 rounded-full cursor-pointer bg-[${colorCode}] border`} style={{ backgroundColor: colorCode }} onClick={() => { setSelectedColor(colorCode) }}>
-        //     {
-        //         selectedColor === colorCode && <Check size={14} className='text-red-800' />
-        //     }
+    const [avaliable, setavaliable] = useState(false)
 
-        // </div>
+    const storageArray = storage?.map((i) => i.fields)
+
+    const handleOnSelect = (value) => {
+        setSelectedStorage(value)
+    }
+    return (
+
         <>
             {
                 storage?.map((ram, index) => {
+
+                    const avaliable = subvariant?.some((i => i.storage2 === ram.fields.storage))
+                    //console.log(ram.fields)
+                    //console.log(subvariant)
+
+                    // if (avaliable) {
+                    //     //setAvaliableStorage([...avaliableStorage, { storage: ram?.fields?.storage }])
+                    //     //setavaliable(true)
+                    //     //console.log(avaliable)
+                    //     return (
+                    //         <Button
+                    //             role='button'
+                    //             disabled
+                    //             key={index}
+                    //             className={`p-6 font-semibold cursor-pointer border`}
+                    //             style={{ borderWidth: 2, borderColor: ram.fields.storage === selectedStorage ? 'green' : '' }}
+                    //             onClick={() => { handleOnSelect(ram.fields.storage) }}
+                    //         >
+                    //             {ram.fields.storage}
+                    //         </Button>
+                    //     )
+                    // } else {
+                    //     return 'NOt Avaliable'
+                    // }
+
+                    if (avaliable) {
+                        //setAvaliableStorage([...avaliableStorage, { storage: ram?.fields?.storage }])
+                    }
+
+
                     return (
-                        <div
+                        <Button
+                            role='button'
+                            disabled={!avaliable}
                             key={index}
                             className={`p-6 font-semibold cursor-pointer border`}
                             style={{ borderWidth: 2, borderColor: ram.fields.storage === selectedStorage ? 'green' : '' }}
-                            onClick={() => { setSelectedStorage(ram.fields.storage) }}
+                            onClick={() => { handleOnSelect(ram.fields.storage) }}
                         >
-                            {ram.fields.storage}
-                        </div>
+                            {ram?.fields?.storage}
+                        </Button>
                     )
                 })
             }
