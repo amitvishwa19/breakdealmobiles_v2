@@ -14,6 +14,8 @@ export default async function Checkout({ params }) {
     const { productId } = params
     const data = await fetchProductData()
 
+    console.log(params)
+
     const res = data.filter((i) => i?.fields?.slug === productId)
     const product = res[0]?.fields
 
@@ -30,7 +32,7 @@ export default async function Checkout({ params }) {
                     <span className='text-xl font-bold mb-10 text-slate-600'>{product?.title}</span>
                 </div>
 
-                <div className='flex-1'>
+                <div className='flex-1 pt-4'>
                     <CheckoutForm />
                 </div>
             </div>

@@ -32,11 +32,15 @@ export default function OfferModal() {
     }, [])
 
     const getOffer = async () => {
-        await axios.get('/api/v1/offer')
-            .then((res) => {
-                //console.log(res?.data?.data[0].fields)
-                setOffer(res?.data?.data[0]?.fields)
-            })
+        try {
+            await axios.get('/api/v1/offer')
+                .then((res) => {
+                    //console.log(res?.data?.data[0].fields)
+                    setOffer(res?.data?.data[0]?.fields)
+                })
+        } catch (error) {
+            setOpen(false)
+        }
     }
 
 

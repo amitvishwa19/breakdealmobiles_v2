@@ -3,8 +3,8 @@ import { Check } from 'lucide-react'
 import React, { useState } from 'react'
 
 
-export default function ColorPallete({ colorCode, lcolors }) {
-    const [selectedColor, setSelectedColor] = useState('')
+export default function ColorPallete({ colorCode, lcolors, selectedColor, setSelectedColor }) {
+    //const [selectedColor, setSelectedColor] = useState('')
     return (
 
         <>
@@ -15,9 +15,9 @@ export default function ColorPallete({ colorCode, lcolors }) {
                         <div key={index}
                             className={`p-6 rounded-full cursor-pointer bg-[${color.fields.code}] border flex items-center justify-center`}
                             style={{ backgroundColor: color.fields.code }}
-                            onClick={() => { setSelectedColor(color.fields.code) }}
+                            onClick={() => { setSelectedColor(color.fields) }}
                         >
-                            {selectedColor === color.fields.code && <Check size={14} />}
+                            {selectedColor?.code === color.fields.code && <Check size={14} />}
                         </div>
 
                     )
