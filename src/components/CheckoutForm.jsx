@@ -4,7 +4,7 @@ import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
 import { Button } from './ui/button'
 import { toast } from "sonner";
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useSearchParams, useRouter, useParams } from 'next/navigation'
 import axios from 'axios'
 import { Loader } from 'lucide-react'
 
@@ -12,15 +12,19 @@ import { Loader } from 'lucide-react'
 
 export default function CheckoutForm() {
     const router = useRouter()
-    const params = useSearchParams()
+    const params = useParams()
+    const par = useSearchParams()
     const [data, setData] = useState({ name: '', email: '', mobile: '', address: '' })
     const [processing, setProcessing] = useState(false)
 
     const onSubmitClick = async (e) => {
         e.preventDefault()
 
-        const storage = params.get('storage')
-        const color = params.get('color')
+        console.log(params)
+
+        const storage = par.get('storage')
+        const color = par.get('color')
+        const model = params.productId
 
         if (data.name.length === 0) { return toast.error('Please provide your mail') }
         if (data.email.length === 0) { return toast.error('Please provide your email') }
@@ -29,8 +33,9 @@ export default function CheckoutForm() {
 
         try {
             setProcessing(true)
-            await axios.post(`/api/v1/checkout`, { ...data, storage, color })
+            await axios.post(`/api/v1/checkout`, { ...data, model, storage, color })
                 .then((res) => {
+                    setData({ name: '', email: '', mobile: '', address: '' })
                     toast.success('Order placed successfully')
                     router.replace('/')
                 })
