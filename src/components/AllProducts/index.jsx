@@ -31,7 +31,7 @@ export default function AllProducts() {
 
 
     return (
-        <div className={`md:flex w-full  gap-10 mx-10 justify-center mb-10`}>
+        <div className={`grid sm:grid-cols-2 md:grid-cols-4 gap-4 p-2`}>
             {
                 products?.map((item, index) => {
                     const model = item.fields.model

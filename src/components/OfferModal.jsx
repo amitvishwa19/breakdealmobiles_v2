@@ -53,7 +53,7 @@ export default function OfferModal() {
             {/* <DialogTrigger asChild>
                 <Button variant="outline">Edit Profile</Button>
             </DialogTrigger> */}
-            <DialogContent className=" bg-white rounded flex flex-col items-center justify-center" style={{ borderRadius: 20 }}>
+            <DialogContent className="flex flex-col w-[80%] sm:max-w-[425px] bg-white rounded  items-center justify-center" style={{ borderRadius: 6 }}>
                 <div className='text-orange-600 font-extrabold text-center text-3xl' >
                     {title}
                 </div>

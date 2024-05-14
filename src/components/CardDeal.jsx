@@ -5,7 +5,7 @@ import Button from "./Button";
 import Link from "next/link";
 
 const CardDeal = () => (
-  <section className={layout.section}>
+  <section className={`${layout.section} p-4`}>
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
         Find a better Mobile deal <br className="sm:block hidden" /> with BreakdealsMobile.

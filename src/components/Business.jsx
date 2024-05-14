@@ -11,7 +11,7 @@ import styles, { layout } from "@/app/style";
 
 
 const Business = () => (
-  <section id="features" className={layout.section}>
+  <section id="features" className={`${layout.section} p-4`}>
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
 

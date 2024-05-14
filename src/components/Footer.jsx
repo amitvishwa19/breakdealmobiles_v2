@@ -10,7 +10,7 @@ const Footer = () => (
     <div className={`${styles.boxWidth}`}>
       <section className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
         <div className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full`}>
-          <div className="flex-[1] flex flex-col justify-start mr-10">
+          <div className="md:flex-[1] flex flex-col justify-center md:justify-start mr-10 items-center">
             <img
               src={logo_light.src}
               alt="breakdealmobiles"

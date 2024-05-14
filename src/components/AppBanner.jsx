@@ -56,7 +56,7 @@ export default function AppBanner() {
                                 <div className="flex h-full p-10">
 
 
-                                    <div className=' w-[60%] flex items-center justify-center'>
+                                    <div className='hidden md:flex w-[60%] items-center justify-center'>
 
                                         <div className={`${styles.flexStart} flex-col xl:px-0 sm:px-16  hidden md:flex`}>
 

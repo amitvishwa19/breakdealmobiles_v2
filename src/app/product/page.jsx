@@ -26,7 +26,7 @@ export default async function ProductPage() {
             </div>
 
 
-            <div className='my-10'>
+            <div className='    '>
                 {
                     data?.map((item, index) => {
                         const model = item?.fields
@@ -38,7 +38,7 @@ export default async function ProductPage() {
                                     <span className='font-semibold text-slate-600'>( {item?.fields?.priceRange})</span>
                                 </div>
 
-                                <div className='flex gap-4 '>
+                                <div className=' grid sm:grid-cols-2 md:grid-cols-4 gap-4 p-2'>
 
                                     {
                                         model.varants?.map((variant, index) => {

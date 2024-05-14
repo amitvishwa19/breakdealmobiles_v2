@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "sonner";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,7 +21,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning={true}>
 
-        <div className="flex flex-col min-h-screen overflow-hidden">
+        <div className="flex flex-col min-h-screen overflow-hidden dark">
           <div>
             <Navbar />
           </div>
@@ -29,7 +31,8 @@ export default function RootLayout({ children }) {
           <div>
             <Footer />
           </div>
-          <Toaster />
+          <Toaster className="bg-red-200" style={{ backgroundColor: 'red' }} />
+          <ToastContainer />
         </div>
       </body>
     </html>

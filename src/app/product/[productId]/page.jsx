@@ -22,7 +22,8 @@ export default function ProductIdPage({ params }) {
     const [selectedImage, setSelectedImage] = useState('')
     const [selectedPrise, setSelectedPrice] = useState({ orignal: '', offer: '' })
     const [storage, setStorage] = useState('')
-    const [selectedColor, setSelectedColor] = useState(null)
+    const [selectedColor, setSelectedColor] = useState('#DAC1C')
+    const [error, setError] = useState('Select Color')
 
     useEffect(() => {
         getData()
@@ -51,6 +52,7 @@ export default function ProductIdPage({ params }) {
 
     const handleBuy = () => {
         if (!selectedColor) {
+
             return toast.error('Please select a color to proceed')
         }
         console.log('storage', storage)
@@ -60,7 +62,7 @@ export default function ProductIdPage({ params }) {
 
 
     return (
-        <div className='flex h-full  p-10'>
+        <div className='flex flex-col md:flex-row h-full  p-10'>
             <div>
                 <div className='bg-slate-200 p-4'>
                     <img src={selectedImage} alt="" style={{ width: 400 }} />
@@ -82,7 +84,7 @@ export default function ProductIdPage({ params }) {
                     }
                 </div>
             </div>
-            <div className='flex flex-col p-4  mx-20'>
+            <div className='flex flex-col p-4  md:mx-20'>
                 <span className='text-2xl font-bold mb-10'>{product?.title}</span>
                 <span className='text-xl font-bold text-slate-600 '>{product?.priceRange}</span>
 
@@ -124,11 +126,13 @@ export default function ProductIdPage({ params }) {
                                     Buy Now
                                 </Button>
                             </div>
+
+                            {/* <div className='flex p-4 items-center justify-center bg-red-400 text-xl font-bold'>
+                                {error}
+                            </div> */}
                         </div>
-                        // :
-                        // <div className='text-xl font-bold text-orange-600 p-4 bg-gray-200 rounded-md'>
-                        //     Out of Stock
-                        // </div>
+
+
                     }
 
 

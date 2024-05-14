@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div className=''>
 
-      <OfferModal />
+      {/* <OfferModal /> */}
 
       <AppBanner />
 
@@ -31,7 +31,7 @@ export default function Home() {
 
           {/* <AllProdCarousel /> */}
 
-
+          {/* grid sm:grid-cols-2 md:grid-cols-4 gap-4 p-2 */}
 
           <AllProducts />
 
