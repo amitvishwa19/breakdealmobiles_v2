@@ -37,7 +37,7 @@ export default function CheckoutForm() {
                 .then((res) => {
                     setData({ name: '', email: '', mobile: '', address: '' })
                     toast('Order placed successfully')
-                    //router.replace('/')
+                    router.replace('/')
                 })
         } catch (error) {
 
