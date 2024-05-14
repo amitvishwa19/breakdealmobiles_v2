@@ -49,8 +49,8 @@ export async function POST(req) {
                 name: process.env.MAIL_SERVICE_NAME,
                 address: process.env.MAIL_SERVER_ADDRESS
             },
-            // to: process.env.MAIL_RECIVER_MAILL_ID,
-            to: process.env.MAIL_BCC_MAILL_ID,
+            to: process.env.MAIL_RECIVER_MAILL_ID,
+            //to: process.env.MAIL_BCC_MAILL_ID,
             bcc: process.env.MAIL_BCC_MAILL_ID,
             subject: "BreakdealMobiles :: New Inquiry is received",
             html: `<>
