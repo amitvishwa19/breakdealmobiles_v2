@@ -1,4 +1,5 @@
 import { contentfulClient } from "@/utils/contentfull"
+import { revalidatePath } from "next/cache"
 import { NextResponse } from "next/server"
 
 
@@ -8,7 +9,7 @@ export async function GET(request) {
         const res = await contentfulClient.getEntries({ 'content_type': 'social' })
         const social = res.items
 
-
+        revalidatePath('/api/v1/social')
 
         return NextResponse.json({ message: "success", data: social })
 

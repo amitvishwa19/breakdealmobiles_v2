@@ -31,7 +31,7 @@ export default function StorageSelector({ storage, data, subvariant, avaliableSt
 
     return (
 
-        <>
+        <div className='flex gap-2 flex-wrap'>
             {
                 storage?.map((ram, index) => {
 
@@ -47,7 +47,7 @@ export default function StorageSelector({ storage, data, subvariant, avaliableSt
                             role='button'
                             disabled={!avaliable}
                             key={index}
-                            className={`p-6 font-semibold cursor-pointer border`}
+                            className={`p-2 md:p-6 font-semibold cursor-pointer border`}
                             style={{ borderWidth: 2, borderColor: ram.fields.storage === selectedStorage ? 'green' : '' }}
                             onClick={() => { handleOnSelect(ram.fields) }}
                         >
@@ -56,7 +56,7 @@ export default function StorageSelector({ storage, data, subvariant, avaliableSt
                     )
                 })
             }
-        </>
+        </div>
     )
 }
 

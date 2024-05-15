@@ -15,7 +15,7 @@ export default function PhoneCard({ data }) {
             // router.push(`/product/${data?.fields?.slug}`)
             router.push(`/product/`)
         }}>
-            <img src={image_url} alt={data.model} style={{ height: 500, widows: 600 }} />
+            <img src={image_url} alt={data.model} style={{ height: 300, widows: 300 }} />
             {/* <Image fill src={{ url: image_url }} alt={image_title} /> */}
             <span className="text-2xl font-bold">
                 {model}

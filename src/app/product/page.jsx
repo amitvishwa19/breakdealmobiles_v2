@@ -1,23 +1,35 @@
 
-
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import FeatureInfo from '@/components/FeatureInfo'
 import CTA from '@/components/CTA'
-import { contentfulClient } from '@/utils/contentfull'
+//import { contentfulClient } from '@/utils/contentfull'
 import VariantCard from '@/components/VariantCard'
+import axios from 'axios'
 
 
-export async function fetchProductData() {
-    const res = await contentfulClient.getEntries({ 'content_type': 'products' }, { order: "fields.order" })
-    //console.log(res.sys)
-    return res.items
-}
+// export async function fetchProductData() {
+//     const res = await contentfulClient.getEntries({ 'content_type': 'products' }, { order: "fields.order" })
+//     //console.log(res.sys)
+//     return res.items
+// }
 
 
-export default async function ProductPage() {
-    const data = await fetchProductData()
+export default function ProductPage() {
+    const [data, setData] = useState([])
+    //const data = await fetchProductData()
 
+    useEffect(() => {
+        fetchProducts()
+    }, [])
 
+    const fetchProducts = async () => {
+        await axios.get('/api/v1/product')
+            .then((res) => {
+                //console.log(res)
+                setData(res.data.data)
+            })
+    }
 
     return (
         <div className='flex flex-col p-6'>

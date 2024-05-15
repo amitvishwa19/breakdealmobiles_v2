@@ -16,7 +16,7 @@ export default function SocialLinks() {
     const getData = async () => {
         await axios.get('/api/v1/social')
             .then((res) => {
-                //console.log(res?.data?.data)
+                console.log(res?.data?.data)
                 seetSocialLinks(res?.data?.data)
             })
     }

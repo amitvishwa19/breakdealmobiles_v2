@@ -31,7 +31,7 @@ export default function AppBanner() {
     }
 
     const plugin = useRef(
-        Autoplay({ delay: 2000, stopOnInteraction: false })
+        Autoplay({ delay: 4000, stopOnInteraction: false })
     )
 
 

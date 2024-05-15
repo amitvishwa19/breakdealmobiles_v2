@@ -1,4 +1,4 @@
-
+'use client'
 import AppBanner from "@/components/AppBanner";
 import UspInfo from "@/components/UspInfo";
 import styles, { layout } from "@/app/style";
@@ -10,13 +10,32 @@ import Clients from "@/components/Clients";
 import CTA from "@/components/CTA";
 import AllProducts from "@/components/AllProducts";
 import OfferModal from "@/components/OfferModal";
+import { useGoogleOneTapLogin } from 'react-google-one-tap-login';
+import { useEffect, useState } from "react";
+import AppGoogleLogin from "@/components/AppGoogleLogin";
+//import { useGoogleOneTapLogin } from '@react-oauth/google';
 
 
 export default function Home() {
+  const [showGoogle, setShowGoogle] = useState(false)
+
+  useEffect(() => {
+
+    const auth = localStorage.getItem('auth')
+    if (!auth) {
+      setShowGoogle(true)
+    }
+  }, [])
+
 
 
   return (
     <div className=''>
+
+      {
+        showGoogle && <AppGoogleLogin />
+      }
+
 
       {/* <OfferModal /> */}
 

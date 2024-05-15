@@ -27,6 +27,7 @@ export default function ProductIdPage({ params }) {
 
     useEffect(() => {
         getData()
+        //console.log(productId)
     }, [])
 
     const getData = async () => {
