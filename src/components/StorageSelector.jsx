@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Button } from './ui/button'
 
 
-export default function StorageSelector({ storage, data, subvariant, avaliableStorage, setAvaliableStorage, setSelectedPrice, setStorage }) {
+export default function StorageSelector({ storage, data, subvariant, avaliableStorage, setAvaliableStorage, setSelectedPrice, setStorage, setAvaliable }) {
     const [selectedStorage, setSelectedStorage] = useState('')
     const [avaliable, setavaliable] = useState(false)
 
@@ -37,8 +37,11 @@ export default function StorageSelector({ storage, data, subvariant, avaliableSt
 
                     const avaliable = subvariant?.some((i => i.storage2 === ram.fields.storage))
 
+
+
                     if (avaliable) {
-                        //setAvaliableStorage([...avaliableStorage, { storage: ram?.fields?.storage }])
+                        //console.log(avaliable)
+                        setAvaliable(true)
                     }
 
                     //console.log('ram.fields.storage', ram)

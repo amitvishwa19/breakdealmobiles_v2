@@ -6,6 +6,7 @@ import CTA from '@/components/CTA'
 //import { contentfulClient } from '@/utils/contentfull'
 import VariantCard from '@/components/VariantCard'
 import axios from 'axios'
+import { Skeleton } from '@/components/ui/skeleton'
 
 
 // export async function fetchProductData() {
@@ -17,6 +18,7 @@ import axios from 'axios'
 
 export default function ProductPage() {
     const [data, setData] = useState([])
+    const [loading, setLoading] = useState(true)
     //const data = await fetchProductData()
 
     useEffect(() => {
@@ -28,6 +30,7 @@ export default function ProductPage() {
             .then((res) => {
                 //console.log(res)
                 setData(res.data.data)
+                setLoading(false)
             })
     }
 
@@ -37,38 +40,46 @@ export default function ProductPage() {
                 <FeatureInfo />
             </div>
 
+            {
+                loading ? <div>
+                    <Loader />
+                    <Loader />
+                    <Loader />
+                    <Loader />
+                </div> :
+                    <div className='    '>
+                        {
+                            data?.map((item, index) => {
+                                const model = item?.fields
+                                //console.log(model)
+                                return (
+                                    <div key={index} className='my-10'>
+                                        <div>
+                                            <span className='font-bold text-slate-600 text-2xl'>{item?.fields?.model}</span>
+                                            <span className='font-semibold text-slate-600'>( {item?.fields?.priceRange})</span>
+                                        </div>
 
-            <div className='    '>
-                {
-                    data?.map((item, index) => {
-                        const model = item?.fields
-                        //console.log(model)
-                        return (
-                            <div key={index} className='my-10'>
-                                <div>
-                                    <span className='font-bold text-slate-600 text-2xl'>{item?.fields?.model}</span>
-                                    <span className='font-semibold text-slate-600'>( {item?.fields?.priceRange})</span>
-                                </div>
+                                        <div className=' grid sm:grid-cols-2 md:grid-cols-4 gap-4 p-2'>
 
-                                <div className=' grid sm:grid-cols-2 md:grid-cols-4 gap-4 p-2'>
+                                            {
+                                                model.varants?.map((variant, index) => {
+                                                    //console.log(variant.fields)
+                                                    const image_url = variant?.fields?.cover?.fields?.file?.url
+                                                    //console.log(variant?.fields?.title)
+                                                    return (
+                                                        <VariantCard key={index} variant={variant} />
 
-                                    {
-                                        model.varants?.map((variant, index) => {
-                                            //console.log(variant.fields)
-                                            const image_url = variant?.fields?.cover?.fields?.file?.url
-                                            //console.log(variant?.fields?.title)
-                                            return (
-                                                <VariantCard key={index} variant={variant} />
+                                                    )
+                                                })
 
-                                            )
-                                        })
-                                    }
-                                </div>
-                            </div>
-                        )
-                    })
-                }
-            </div>
+                                            }
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+            }
 
 
             <div>
@@ -78,4 +89,16 @@ export default function ProductPage() {
     )
 }
 
+
+
+const Loader = () => {
+    return (
+        <div className='grid sm:grid-cols-2 md:grid-cols-4 gap-4 p-2 '>
+            <Skeleton className=" aspect-video h-60 w-full " />
+            <Skeleton className=" aspect-video h-60 w-full" />
+            <Skeleton className=" aspect-video h-60 w-full" />
+            <Skeleton className=" aspect-video h-60 w-full" />
+        </div>
+    )
+}
 

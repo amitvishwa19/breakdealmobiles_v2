@@ -6,7 +6,7 @@ import styles, { layout } from "@/app/style";
 const Billing = () => (
   <section id="product" className={`${layout.section} p-4`}>
     <div className={layout.sectionImgReverse}>
-      <img src={ph_2.src} alt="billing" className="w-[100%] h-[100%] relative z-[5]" />
+      <img src={ph_2.src} alt="billing" className="w-[400px] h-[400px] relative z-[5]" />
 
       {/* gradient start */}
       <div className="absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient" />

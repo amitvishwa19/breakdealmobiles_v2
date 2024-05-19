@@ -1,11 +1,13 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import React from 'react'
+import React, { useState } from 'react'
+import { Skeleton } from "@/components/ui/skeleton"
 
 
 
 export default function VariantCard({ variant }) {
     const router = useRouter()
+
     const image_url = variant?.fields?.cover?.fields?.file?.url
     return (
         <div onClick={() => { router.push(`/product/${variant?.fields?.slug}`) }} className=' cursor-pointer'>
@@ -16,3 +18,4 @@ export default function VariantCard({ variant }) {
         </div>
     )
 }
+

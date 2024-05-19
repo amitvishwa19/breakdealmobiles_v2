@@ -19,7 +19,7 @@ const CardDeal = () => (
     </div>
 
     <div className={layout.sectionImg}>
-      <img src={ph_3.src} alt="billing" className="w-[100%] h-[100%]" />
+      <img src={ph_3.src} alt="billing" className="w-[400px] h-[400px]" />
     </div>
   </section>
 );
