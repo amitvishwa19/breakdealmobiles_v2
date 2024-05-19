@@ -37,9 +37,10 @@ export default function ProductIdPage({ params }) {
     const getData = async () => {
         await axios.get(`/api/v1/product/${productId}`)
             .then((res) => {
-                //console.log(res.data.data);
+
                 setLoading(false)
                 setData(res?.data?.data)
+                console.log(res?.data?.data?.product?.free);
             })
     }
 
@@ -128,6 +129,20 @@ export default function ProductIdPage({ params }) {
                                     <span className='font-bold'>Colors: </span>
 
                                     <ColorPallete lcolors={colors?.items} selectedColor={selectedColor} setSelectedColor={setSelectedColor} />
+                                </div>
+
+                                <div className='flex gap-2 my-4 items-center flex-wrap'>
+                                    <span className='font-bold text-slate-800'>Free Offer: </span>
+                                    {
+                                        product?.free?.map((item, index) => {
+                                            //console.log(item?.fields?.title)
+                                            return (
+                                                <div key={index} className='font-semibold bg-green-400 p-2 rounded text-sm'>
+                                                    {item?.fields?.title}
+                                                </div>
+                                            )
+                                        })
+                                    }
                                 </div>
 
                                 <div className='flex gap-4'>

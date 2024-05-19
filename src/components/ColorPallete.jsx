@@ -10,7 +10,7 @@ export default function ColorPallete({ colorCode, lcolors, selectedColor, setSel
         <>
             {
                 lcolors?.map((color, index) => {
-                    console.log(selectedColor?.code)
+                    //console.log(selectedColor?.code)
                     return (
                         <div key={index}
                             className={`p-6 rounded-full cursor-pointer bg-[${color.fields.code}] border border-slate-400 flex items-center justify-center`}
